@@ -5,7 +5,7 @@ export const Select = ({ label, ...props }) => {
   return (
     <div>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <select {...field} {...props} />
+      <select className={`${meta.touched && meta.error ? 'red-border' : ''}`} {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}

@@ -648,3 +648,7 @@ label.checkbox {
 button[type="submit"] {
   margin-top: 1rem;
 }
+
+.red-border:not(:focus-within) {
+  border-color: red;
+}
