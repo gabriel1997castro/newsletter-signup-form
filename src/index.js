@@ -8,21 +8,19 @@ import { Checkbox } from './components/Checkbox';
 import { Select } from './components/Select';
 import { signUpFormValidator } from './validators/signUpValidators';
 
-
-
-
-// And now we can use these
 const SignupForm = () => {
+  const queryParams = new URLSearchParams(window.location.search);
+
   return (
     <>
       <h1>Subscribe!</h1>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          acceptedTerms: false, // added for our checkbox
-          jobType: '', // added for our select
+          firstName: queryParams.get('firstName') ?? '',
+          lastName: queryParams.get('lastName') ?? '',
+          email: queryParams.get('email') ?? '',
+          acceptedTerms: queryParams.get('acceptedTerms') ?? false, // added for our checkbox
+          jobType: queryParams.get('jobType') ?? '', // added for our select
         }}
         validationSchema={signUpFormValidator}
         onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -69,7 +67,7 @@ const SignupForm = () => {
             </Checkbox>
 
             <button disabled={!formik.isValid || formik.isSubmitting} type="submit">Submit</button>
-            <button type="reset">Clear form</button>
+            <button type="reset">Reset</button>
           </Form>
         )}
       </Formik>
