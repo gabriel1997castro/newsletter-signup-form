@@ -85,10 +85,11 @@ const SignupForm = () => {
             )
             .required('Required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            resetForm();
           }, 2000);
         }}
       >
@@ -128,6 +129,7 @@ const SignupForm = () => {
             </MyCheckbox>
 
             <button disabled={!formik.isValid || formik.isSubmitting} type="submit">Submit</button>
+            <button type="reset">Clear form</button>
           </Form>
         )}
       </Formik>
