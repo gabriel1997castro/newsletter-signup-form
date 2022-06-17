@@ -41,7 +41,7 @@ const SignupForm = () => {
       <input
         id="lastName"
         type="text"
-        {...formik.getFieldProps('firstName')}
+        {...formik.getFieldProps('lastName')}
       />
       {formik.touched.lastName && formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
 
@@ -49,7 +49,7 @@ const SignupForm = () => {
       <input
         id="email"
         type="email"
-        {...formik.getFieldProps('firstName')}
+        {...formik.getFieldProps('email')}
       />
       {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
